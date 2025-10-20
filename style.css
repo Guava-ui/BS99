@@ -193,7 +193,7 @@ body {
 }
 
 .submit-btn:hover {
-  background-color: #ff3333;
+  background-color: #ff3c3c;
 }
 
 /*  FORM  */
@@ -450,4 +450,52 @@ footer {
 
 .about-navbar .order-btn:hover {
   background-color: #ff3c3c;
+}
+
+/* === SEARCH BAR === */
+.search-section {
+  width: 100%;
+  background-color: #fff8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 2px solid #b80000;
+  border-radius: 25px;
+  overflow: hidden;
+  width: 90%;
+  max-width: 500px;
+}
+
+.search-container input {
+  flex: 1;
+  padding: 12px 15px;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  color: #333;
+}
+
+.search-container button {
+  background-color: #b80000;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.search-container button:hover {
+  background-color: #ff3c3c;
+}
+
+.search-container i {
+  font-size: 18px;
 }

@@ -47,7 +47,7 @@ document.getElementById("submit-btn").addEventListener("click", () => {
   const wa = document.getElementById("whatsapp").value.trim();
 
   if (!nama || !alamat || !wa) {
-    alert("❗ Mohon isi semua data pembeli terlebih dahulu!");
+    alert("! Mohon isi semua data pembeli terlebih dahulu!");
     return;
   }
 
@@ -89,6 +89,42 @@ document.addEventListener("DOMContentLoaded", () => {
   if (menuToggle && navLinks) {
     menuToggle.addEventListener("click", () => {
       navLinks.classList.toggle("show");
+    });
+  }
+});
+
+// === FITUR PENCARIAN MENU ===
+document.addEventListener("DOMContentLoaded", () => {
+  const searchInput = document.getElementById("searchInput");
+  const searchBtn = document.getElementById("searchBtn");
+  const menuItems = document.querySelectorAll(".menu-item"); // pastikan setiap card menu punya class 'menu-item'
+
+  if (searchInput && searchBtn && menuItems.length > 0) {
+    // Fungsi pencarian
+    const searchMenu = () => {
+      const query = searchInput.value.toLowerCase().trim();
+
+      menuItems.forEach((item) => {
+        const name = item.textContent.toLowerCase();
+        if (query === "" || name.includes(query)) {
+          item.style.display = "block";
+        } else {
+          item.style.display = "none";
+        }
+      });
+    };
+
+    // Klik tombol pencarian
+    searchBtn.addEventListener("click", searchMenu);
+
+    // Tekan Enter untuk mencari
+    searchInput.addEventListener("keyup", (e) => {
+      if (e.key === "Enter") searchMenu();
+
+      // Jika dikosongkan, tampilkan semua menu lagi
+      if (searchInput.value.trim() === "") {
+        menuItems.forEach((item) => (item.style.display = "block"));
+      }
     });
   }
 });

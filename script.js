@@ -1,8 +1,8 @@
 let keranjang = [];
 
-// Scroll otomatis ke menu
+// Scroll otomatis ke sumbit
 document.getElementById("scrollToMenu").addEventListener("click", () => {
-  document.getElementById("menu").scrollIntoView({ behavior: "smooth" });
+  document.getElementById("order-form").scrollIntoView({ behavior: "smooth" });
 });
 
 // Tambah item ke keranjang

@@ -101,6 +101,9 @@ body {
 }
 
 .menu-item {
+  padding: 10px;
+  text-align: center;
+  position: relative;
   background: white;
   border-radius: 10px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -117,6 +120,8 @@ body {
   width: 100%;
   height: 180px;
   object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 
 .menu-info {
@@ -194,6 +199,58 @@ body {
 
 .submit-btn:hover {
   background-color: #ff3c3c;
+}
+
+/* TAG */
+.menu-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: #c00000;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 4px 10px;
+  border-radius: 5px;
+  text-transform: uppercase;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.tag-ayam {
+  background-color: #ff4d4d;
+}
+.tag-capcay {
+  background-color: #0099cc;
+}
+.tag-tahu {
+  background-color: #ff9900;
+}
+.tag-fuyunghai {
+  background-color: #8e44ad;
+}
+.tag-cumi {
+  background-color: #ca5400;
+}
+.tag-kepting {
+  background-color: #8f0404;
+}
+.tag-udang {
+  background-color: #00ffd0;
+}
+.tag-kerang-d {
+  background-color: #8900a8;
+}
+.tag-kerang-ijo {
+  background-color: #05d868;
+}
+.tag-sapi {
+  background-color: #a00028;
+}
+.tag-kangkung {
+  background-color: #007537;
+}
+.tag-kwetiaw {
+  background-color: #ef7190;
 }
 
 /*  FORM  */

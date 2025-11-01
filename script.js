@@ -128,3 +128,20 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
+
+function scrollMenu(offset) {
+  const container = document.getElementById("menu");
+  container.scrollBy({ left: offset, behavior: "smooth" });
+}
+
+// Fungsi untuk scroll dengan tombol panah
+function scrollMenu(direction, containerId) {
+  const container = document.getElementById(containerId);
+  const scrollAmount = 300; // jarak geser per klik
+
+  if (direction === "left") {
+    container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+  } else {
+    container.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  }
+}

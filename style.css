@@ -244,6 +244,18 @@ body {
   flex: 0 0 250px;
 }
 
+.menu-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: flex-start;
+}
+
+.menu-grid .menu-item {
+  flex: 0 0 200px;
+}
+
 /*  KERANJANG  */
 .keranjang-section {
   width: calc(100vw - 60px);

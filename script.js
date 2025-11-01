@@ -97,20 +97,29 @@ document.addEventListener("DOMContentLoaded", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("searchInput");
   const searchBtn = document.getElementById("searchBtn");
-  const menuItems = document.querySelectorAll(".menu-item"); // pastikan setiap card menu punya class 'menu-item'
+  const sections = document.querySelectorAll(".menu-section");
 
-  if (searchInput && searchBtn && menuItems.length > 0) {
-    // Fungsi pencarian
+  if (searchInput && searchBtn && sections.length > 0) {
     const searchMenu = () => {
       const query = searchInput.value.toLowerCase().trim();
 
-      menuItems.forEach((item) => {
-        const name = item.textContent.toLowerCase();
-        if (query === "" || name.includes(query)) {
-          item.style.display = "block";
-        } else {
-          item.style.display = "none";
-        }
+      sections.forEach((section) => {
+        const items = section.querySelectorAll(".menu-item");
+        let foundInSection = false;
+
+        items.forEach((item) => {
+          const name = item.textContent.toLowerCase();
+          if (query === "" || name.includes(query)) {
+            item.style.display = "block";
+            foundInSection = true;
+          } else {
+            item.style.display = "none";
+          }
+        });
+
+        // Kalau di section itu tidak ada hasil, sembunyikan judulnya
+        section.style.display =
+          foundInSection || query === "" ? "block" : "none";
       });
     };
 
@@ -121,14 +130,20 @@ document.addEventListener("DOMContentLoaded", () => {
     searchInput.addEventListener("keyup", (e) => {
       if (e.key === "Enter") searchMenu();
 
-      // Jika dikosongkan, tampilkan semua menu lagi
+      // Kalau input kosong, tampilkan semua
       if (searchInput.value.trim() === "") {
-        menuItems.forEach((item) => (item.style.display = "block"));
+        sections.forEach((section) => {
+          section.style.display = "block";
+          section.querySelectorAll(".menu-item").forEach((item) => {
+            item.style.display = "block";
+          });
+        });
       }
     });
   }
 });
 
+// Scroll
 function scrollMenu(offset) {
   const container = document.getElementById("menu");
   container.scrollBy({ left: offset, behavior: "smooth" });
@@ -137,7 +152,7 @@ function scrollMenu(offset) {
 // Fungsi untuk scroll dengan tombol panah
 function scrollMenu(direction, containerId) {
   const container = document.getElementById(containerId);
-  const scrollAmount = 300; // jarak geser per klik
+  const scrollAmount = 300;
 
   if (direction === "left") {
     container.scrollBy({ left: -scrollAmount, behavior: "smooth" });
